@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B544B3752486BA0C00B6262B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B3742486BA0C00B6262B /* Extensions.swift */; };
 		B5D7C24A24856CCE00328163 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C24924856CCE00328163 /* AppDelegate.swift */; };
 		B5D7C24C24856CCE00328163 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C24B24856CCE00328163 /* SceneDelegate.swift */; };
 		B5D7C24E24856CCE00328163 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C24D24856CCE00328163 /* ViewController.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		B544B3742486BA0C00B6262B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B5D7C24624856CCE00328163 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D7C24924856CCE00328163 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5D7C24B24856CCE00328163 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B544B3732486B94100B6262B /* Utills */ = {
+			isa = PBXGroup;
+			children = (
+				B544B3742486BA0C00B6262B /* Extensions.swift */,
+			);
+			path = Utills;
+			sourceTree = "<group>";
+		};
 		B5D7C23D24856CCE00328163 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +111,7 @@
 		B5D7C24824856CCE00328163 /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
+				B544B3732486B94100B6262B /* Utills */,
 				B5D7C24924856CCE00328163 /* AppDelegate.swift */,
 				B5D7C24B24856CCE00328163 /* SceneDelegate.swift */,
 				B5D7C24D24856CCE00328163 /* ViewController.swift */,
@@ -268,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B544B3752486BA0C00B6262B /* Extensions.swift in Sources */,
 				B5D7C24E24856CCE00328163 /* ViewController.swift in Sources */,
 				B5D7C24A24856CCE00328163 /* AppDelegate.swift in Sources */,
 				B5D7C25424856CCE00328163 /* InstagramClone.xcdatamodeld in Sources */,
