@@ -24,7 +24,7 @@ class ViewController: UIViewController {
     }()
     
     let emailTextField: UITextField = {
-       let tf = UITextField()
+        let tf = UITextField()
         tf.placeholder = "Email"
         tf.translatesAutoresizingMaskIntoConstraints = false
         tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
@@ -48,7 +48,7 @@ class ViewController: UIViewController {
         tf.addTarget(self, action: #selector(handleTextFieldInputChange), for: .editingChanged)
         return tf
     }()
-
+    
     let passwordTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Password"
@@ -60,7 +60,7 @@ class ViewController: UIViewController {
         
         //Add action
         tf.addTarget(self, action: #selector(handleTextFieldInputChange), for: .editingChanged)
-
+        
         
         return tf
     }()
@@ -77,7 +77,7 @@ class ViewController: UIViewController {
         
         // Add action
         btn.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
-         
+        
         return btn
     }()
     
@@ -88,15 +88,21 @@ class ViewController: UIViewController {
         
         // add active for constraint
         btnAddPhoto.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        btnAddPhoto.anchor(top: view.topAnchor, bottom: nil, left: nil, right: nil, paddingTop: 40, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 140, height: 140)
+        //        btnAddPhoto.anchor(top: view.topAnchor, bottom: nil, left: nil, right: nil, paddingTop: 40, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 140, height: 140)
         
         UIView.anchor(uiv: btnAddPhoto, top: view.topAnchor, bottom: nil, left: nil, right: nil, paddingTop: 40, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 140, height: 140)
         setupInputField()
     }
     
+    // hidden Navigation bar
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.isHidden = true
+    }
+    
     func setupInputField() {
         let stackView = UIStackView(arrangedSubviews: [emailTextField, usernameTextField, passwordTextField, signUpButton])
-
+        
         // phan chia cac  field
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
@@ -106,7 +112,7 @@ class ViewController: UIViewController {
         view.addSubview(stackView)
         
         // add active for constraint
-//        stackView.anchor(top: btnAddPhoto.bottomAnchor, bottom: nil, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingBottom: 0, paddingLeft: 40, paddingRight: 40, width: 0, height: 200)
+        //        stackView.anchor(top: btnAddPhoto.bottomAnchor, bottom: nil, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingBottom: 0, paddingLeft: 40, paddingRight: 40, width: 0, height: 200)
         UIView.anchor(uiv: stackView, top: btnAddPhoto.bottomAnchor, bottom: nil, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 20, paddingBottom: 0, paddingLeft: 40, paddingRight: 40, width: 0, height: 200)
         
     }
@@ -143,14 +149,14 @@ class ViewController: UIViewController {
                 guard let uid = user?.user.uid else { return }
                 let dictionaryValues = ["username": username, "profileImageUrl": profileImageUrl]
                 let values = [uid: dictionaryValues]
-                 Database.database().reference().child("users").updateChildValues(values) { (err, ref) in
-                     if let err = err {
-                         print("Failed to save user info into db:", err)
-                         return
-                     }
-
-                     print("Successfully saved user info into db")
-                 }
+                Database.database().reference().child("users").updateChildValues(values) { (err, ref) in
+                    if let err = err {
+                        print("Failed to save user info into db:", err)
+                        return
+                    }
+                    
+                    print("Successfully saved user info into db")
+                }
                 
             }
             
@@ -177,7 +183,7 @@ class ViewController: UIViewController {
         
         present(imagePickerController, animated: true, completion: nil)
     }
-
+    
 }
 
 extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -187,7 +193,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         } else if let originalImage = info[.originalImage] as? UIImage {
             btnAddPhoto.setImage(originalImage.withRenderingMode(.alwaysOriginal), for: .normal)
         }
-         
+        
         btnAddPhoto.layer.cornerRadius = btnAddPhoto.frame.width/2
         btnAddPhoto.layer.masksToBounds = true
         btnAddPhoto.layer.borderColor = UIColor.black.cgColor

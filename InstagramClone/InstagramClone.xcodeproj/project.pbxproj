@@ -11,8 +11,23 @@
 		998152FA2A0EEFB04C63BCAE /* Pods_InstagramClone_InstagramCloneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC40FE6FE2DA6CE59AB7E6F /* Pods_InstagramClone_InstagramCloneUITests.framework */; };
 		B544B3752486BA0C00B6262B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B3742486BA0C00B6262B /* Extensions.swift */; };
 		B544B37724895C9700B6262B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B544B37624895C9700B6262B /* GoogleService-Info.plist */; };
+		B544B37F248D613800B6262B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B37E248D613800B6262B /* MainTabBarController.swift */; };
+		B544B386248E077500B6262B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B384248E077500B6262B /* HomeViewController.swift */; };
+		B544B387248E077500B6262B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B384248E077500B6262B /* HomeViewController.swift */; };
+		B544B388248E077500B6262B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B384248E077500B6262B /* HomeViewController.swift */; };
+		B544B389248E077500B6262B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B385248E077500B6262B /* HomeViewController.xib */; };
+		B544B38A248E077500B6262B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B385248E077500B6262B /* HomeViewController.xib */; };
+		B544B38B248E077500B6262B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B385248E077500B6262B /* HomeViewController.xib */; };
+		B544B38E248E07AA00B6262B /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B38C248E07AA00B6262B /* MovieViewController.swift */; };
+		B544B38F248E07AA00B6262B /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B38C248E07AA00B6262B /* MovieViewController.swift */; };
+		B544B390248E07AA00B6262B /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B38C248E07AA00B6262B /* MovieViewController.swift */; };
+		B544B391248E07AA00B6262B /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B38D248E07AA00B6262B /* MovieViewController.xib */; };
+		B544B392248E07AA00B6262B /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B38D248E07AA00B6262B /* MovieViewController.xib */; };
+		B544B393248E07AA00B6262B /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B38D248E07AA00B6262B /* MovieViewController.xib */; };
+		B544B395248E0A6E00B6262B /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B394248E0A6E00B6262B /* AppRouter.swift */; };
+		B544B396248E0A6E00B6262B /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B394248E0A6E00B6262B /* AppRouter.swift */; };
+		B544B397248E0A6E00B6262B /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B394248E0A6E00B6262B /* AppRouter.swift */; };
 		B5D7C24A24856CCE00328163 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C24924856CCE00328163 /* AppDelegate.swift */; };
-		B5D7C24C24856CCE00328163 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C24B24856CCE00328163 /* SceneDelegate.swift */; };
 		B5D7C24E24856CCE00328163 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C24D24856CCE00328163 /* ViewController.swift */; };
 		B5D7C25124856CCE00328163 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5D7C24F24856CCE00328163 /* Main.storyboard */; };
 		B5D7C25424856CCE00328163 /* InstagramClone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C25224856CCE00328163 /* InstagramClone.xcdatamodeld */; };
@@ -48,9 +63,14 @@
 		B544B3742486BA0C00B6262B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		B544B37624895C9700B6262B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		B544B37924896A7E00B6262B /* InstagramClone-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "InstagramClone-Bridging-Header.h"; sourceTree = "<group>"; };
+		B544B37E248D613800B6262B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		B544B384248E077500B6262B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B544B385248E077500B6262B /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
+		B544B38C248E07AA00B6262B /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
+		B544B38D248E07AA00B6262B /* MovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewController.xib; sourceTree = "<group>"; };
+		B544B394248E0A6E00B6262B /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		B5D7C24624856CCE00328163 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D7C24924856CCE00328163 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		B5D7C24B24856CCE00328163 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		B5D7C24D24856CCE00328163 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		B5D7C25024856CCE00328163 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B5D7C25324856CCE00328163 /* InstagramClone.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = InstagramClone.xcdatamodel; sourceTree = "<group>"; };
@@ -102,8 +122,35 @@
 			isa = PBXGroup;
 			children = (
 				B544B3742486BA0C00B6262B /* Extensions.swift */,
+				B544B394248E0A6E00B6262B /* AppRouter.swift */,
 			);
 			path = Utills;
+			sourceTree = "<group>";
+		};
+		B544B37D248D610000B6262B /* Tabbar */ = {
+			isa = PBXGroup;
+			children = (
+				B544B37E248D613800B6262B /* MainTabBarController.swift */,
+			);
+			path = Tabbar;
+			sourceTree = "<group>";
+		};
+		B544B398248E10F200B6262B /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				B544B384248E077500B6262B /* HomeViewController.swift */,
+				B544B385248E077500B6262B /* HomeViewController.xib */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		B544B399248E112200B6262B /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				B544B38C248E07AA00B6262B /* MovieViewController.swift */,
+				B544B38D248E07AA00B6262B /* MovieViewController.xib */,
+			);
+			path = Movie;
 			sourceTree = "<group>";
 		};
 		B5D7C23D24856CCE00328163 = {
@@ -131,9 +178,11 @@
 		B5D7C24824856CCE00328163 /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
+				B544B399248E112200B6262B /* Movie */,
+				B544B398248E10F200B6262B /* HomeView */,
+				B544B37D248D610000B6262B /* Tabbar */,
 				B544B3732486B94100B6262B /* Utills */,
 				B5D7C24924856CCE00328163 /* AppDelegate.swift */,
-				B5D7C24B24856CCE00328163 /* SceneDelegate.swift */,
 				B5D7C24D24856CCE00328163 /* ViewController.swift */,
 				B5D7C24F24856CCE00328163 /* Main.storyboard */,
 				B5D7C25524856CCF00328163 /* Assets.xcassets */,
@@ -305,6 +354,8 @@
 			files = (
 				B5D7C25924856CCF00328163 /* LaunchScreen.storyboard in Resources */,
 				B5D7C25624856CCF00328163 /* Assets.xcassets in Resources */,
+				B544B389248E077500B6262B /* HomeViewController.xib in Resources */,
+				B544B391248E07AA00B6262B /* MovieViewController.xib in Resources */,
 				B5D7C25124856CCE00328163 /* Main.storyboard in Resources */,
 				B544B37724895C9700B6262B /* GoogleService-Info.plist in Resources */,
 			);
@@ -314,6 +365,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B544B38A248E077500B6262B /* HomeViewController.xib in Resources */,
+				B544B392248E07AA00B6262B /* MovieViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,6 +374,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B544B38B248E077500B6262B /* HomeViewController.xib in Resources */,
+				B544B393248E07AA00B6262B /* MovieViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -453,10 +508,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B544B3752486BA0C00B6262B /* Extensions.swift in Sources */,
+				B544B395248E0A6E00B6262B /* AppRouter.swift in Sources */,
 				B5D7C24E24856CCE00328163 /* ViewController.swift in Sources */,
+				B544B37F248D613800B6262B /* MainTabBarController.swift in Sources */,
+				B544B38E248E07AA00B6262B /* MovieViewController.swift in Sources */,
+				B544B386248E077500B6262B /* HomeViewController.swift in Sources */,
 				B5D7C24A24856CCE00328163 /* AppDelegate.swift in Sources */,
 				B5D7C25424856CCE00328163 /* InstagramClone.xcdatamodeld in Sources */,
-				B5D7C24C24856CCE00328163 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -465,6 +523,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5D7C26424856CCF00328163 /* InstagramCloneTests.swift in Sources */,
+				B544B396248E0A6E00B6262B /* AppRouter.swift in Sources */,
+				B544B387248E077500B6262B /* HomeViewController.swift in Sources */,
+				B544B38F248E07AA00B6262B /* MovieViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -473,6 +534,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5D7C26F24856CD000328163 /* InstagramCloneUITests.swift in Sources */,
+				B544B397248E0A6E00B6262B /* AppRouter.swift in Sources */,
+				B544B388248E077500B6262B /* HomeViewController.swift in Sources */,
+				B544B390248E07AA00B6262B /* MovieViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
