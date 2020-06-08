@@ -13,20 +13,20 @@
 		B544B37724895C9700B6262B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = B544B37624895C9700B6262B /* GoogleService-Info.plist */; };
 		B544B37F248D613800B6262B /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B37E248D613800B6262B /* MainTabBarController.swift */; };
 		B544B386248E077500B6262B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B384248E077500B6262B /* HomeViewController.swift */; };
-		B544B387248E077500B6262B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B384248E077500B6262B /* HomeViewController.swift */; };
-		B544B388248E077500B6262B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B384248E077500B6262B /* HomeViewController.swift */; };
 		B544B389248E077500B6262B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B385248E077500B6262B /* HomeViewController.xib */; };
 		B544B38A248E077500B6262B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B385248E077500B6262B /* HomeViewController.xib */; };
 		B544B38B248E077500B6262B /* HomeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B385248E077500B6262B /* HomeViewController.xib */; };
-		B544B38E248E07AA00B6262B /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B38C248E07AA00B6262B /* MovieViewController.swift */; };
-		B544B38F248E07AA00B6262B /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B38C248E07AA00B6262B /* MovieViewController.swift */; };
-		B544B390248E07AA00B6262B /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B38C248E07AA00B6262B /* MovieViewController.swift */; };
-		B544B391248E07AA00B6262B /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B38D248E07AA00B6262B /* MovieViewController.xib */; };
-		B544B392248E07AA00B6262B /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B38D248E07AA00B6262B /* MovieViewController.xib */; };
-		B544B393248E07AA00B6262B /* MovieViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B38D248E07AA00B6262B /* MovieViewController.xib */; };
+		B544B38E248E07AA00B6262B /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B38C248E07AA00B6262B /* UserProfileController.swift */; };
+		B544B391248E07AA00B6262B /* UserProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B38D248E07AA00B6262B /* UserProfileController.xib */; };
+		B544B392248E07AA00B6262B /* UserProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B38D248E07AA00B6262B /* UserProfileController.xib */; };
+		B544B393248E07AA00B6262B /* UserProfileController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B544B38D248E07AA00B6262B /* UserProfileController.xib */; };
 		B544B395248E0A6E00B6262B /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B394248E0A6E00B6262B /* AppRouter.swift */; };
 		B544B396248E0A6E00B6262B /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B394248E0A6E00B6262B /* AppRouter.swift */; };
 		B544B397248E0A6E00B6262B /* AppRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B394248E0A6E00B6262B /* AppRouter.swift */; };
+		B544B39A248EAC7300B6262B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B384248E077500B6262B /* HomeViewController.swift */; };
+		B544B39B248EAC7300B6262B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B384248E077500B6262B /* HomeViewController.swift */; };
+		B544B39C248EAC7800B6262B /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B38C248E07AA00B6262B /* UserProfileController.swift */; };
+		B544B39D248EAC7800B6262B /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B38C248E07AA00B6262B /* UserProfileController.swift */; };
 		B5D7C24A24856CCE00328163 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C24924856CCE00328163 /* AppDelegate.swift */; };
 		B5D7C24E24856CCE00328163 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C24D24856CCE00328163 /* ViewController.swift */; };
 		B5D7C25124856CCE00328163 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5D7C24F24856CCE00328163 /* Main.storyboard */; };
@@ -66,8 +66,8 @@
 		B544B37E248D613800B6262B /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		B544B384248E077500B6262B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B544B385248E077500B6262B /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
-		B544B38C248E07AA00B6262B /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
-		B544B38D248E07AA00B6262B /* MovieViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieViewController.xib; sourceTree = "<group>"; };
+		B544B38C248E07AA00B6262B /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		B544B38D248E07AA00B6262B /* UserProfileController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileController.xib; sourceTree = "<group>"; };
 		B544B394248E0A6E00B6262B /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		B5D7C24624856CCE00328163 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D7C24924856CCE00328163 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -138,8 +138,8 @@
 		B544B398248E10F200B6262B /* HomeView */ = {
 			isa = PBXGroup;
 			children = (
-				B544B384248E077500B6262B /* HomeViewController.swift */,
 				B544B385248E077500B6262B /* HomeViewController.xib */,
+				B544B384248E077500B6262B /* HomeViewController.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -147,8 +147,8 @@
 		B544B399248E112200B6262B /* Movie */ = {
 			isa = PBXGroup;
 			children = (
-				B544B38C248E07AA00B6262B /* MovieViewController.swift */,
-				B544B38D248E07AA00B6262B /* MovieViewController.xib */,
+				B544B38D248E07AA00B6262B /* UserProfileController.xib */,
+				B544B38C248E07AA00B6262B /* UserProfileController.swift */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -355,7 +355,7 @@
 				B5D7C25924856CCF00328163 /* LaunchScreen.storyboard in Resources */,
 				B5D7C25624856CCF00328163 /* Assets.xcassets in Resources */,
 				B544B389248E077500B6262B /* HomeViewController.xib in Resources */,
-				B544B391248E07AA00B6262B /* MovieViewController.xib in Resources */,
+				B544B391248E07AA00B6262B /* UserProfileController.xib in Resources */,
 				B5D7C25124856CCE00328163 /* Main.storyboard in Resources */,
 				B544B37724895C9700B6262B /* GoogleService-Info.plist in Resources */,
 			);
@@ -366,7 +366,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B544B38A248E077500B6262B /* HomeViewController.xib in Resources */,
-				B544B392248E07AA00B6262B /* MovieViewController.xib in Resources */,
+				B544B392248E07AA00B6262B /* UserProfileController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,7 +375,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B544B38B248E077500B6262B /* HomeViewController.xib in Resources */,
-				B544B393248E07AA00B6262B /* MovieViewController.xib in Resources */,
+				B544B393248E07AA00B6262B /* UserProfileController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -511,7 +511,7 @@
 				B544B395248E0A6E00B6262B /* AppRouter.swift in Sources */,
 				B5D7C24E24856CCE00328163 /* ViewController.swift in Sources */,
 				B544B37F248D613800B6262B /* MainTabBarController.swift in Sources */,
-				B544B38E248E07AA00B6262B /* MovieViewController.swift in Sources */,
+				B544B38E248E07AA00B6262B /* UserProfileController.swift in Sources */,
 				B544B386248E077500B6262B /* HomeViewController.swift in Sources */,
 				B5D7C24A24856CCE00328163 /* AppDelegate.swift in Sources */,
 				B5D7C25424856CCE00328163 /* InstagramClone.xcdatamodeld in Sources */,
@@ -524,8 +524,8 @@
 			files = (
 				B5D7C26424856CCF00328163 /* InstagramCloneTests.swift in Sources */,
 				B544B396248E0A6E00B6262B /* AppRouter.swift in Sources */,
-				B544B387248E077500B6262B /* HomeViewController.swift in Sources */,
-				B544B38F248E07AA00B6262B /* MovieViewController.swift in Sources */,
+				B544B39B248EAC7300B6262B /* HomeViewController.swift in Sources */,
+				B544B39C248EAC7800B6262B /* UserProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -535,8 +535,8 @@
 			files = (
 				B5D7C26F24856CD000328163 /* InstagramCloneUITests.swift in Sources */,
 				B544B397248E0A6E00B6262B /* AppRouter.swift in Sources */,
-				B544B388248E077500B6262B /* HomeViewController.swift in Sources */,
-				B544B390248E07AA00B6262B /* MovieViewController.swift in Sources */,
+				B544B39A248EAC7300B6262B /* HomeViewController.swift in Sources */,
+				B544B39D248EAC7800B6262B /* UserProfileController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

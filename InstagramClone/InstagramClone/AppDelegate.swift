@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        AppRouter.shared.openLogin()
+        AppRouter.shared.openHome()
 //        window?.rootViewController = ViewController() //MainTabBarController()
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()

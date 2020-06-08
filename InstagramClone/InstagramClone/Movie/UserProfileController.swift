@@ -1,5 +1,5 @@
 //
-//  MovieViewController.swift
+//  UserProfileController.swift
 //  InstagramClone
 //
 //  Created by vfa on 6/8/20.
@@ -8,11 +8,11 @@
 
 import UIKit
 
-class MovieViewController: UIViewController {
+class UserProfileController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .lightGray
+        self.collectionView.backgroundColor = .lightGray
         // Do any additional setup after loading the view.
     }
 

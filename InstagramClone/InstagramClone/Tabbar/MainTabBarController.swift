@@ -33,11 +33,16 @@ class MainTabBarController: UITabBarController {
         /// Background color tabbar
         self.tabBar.backgroundColor = .white
         navigationItem.setHidesBackButton(true, animated: true)
+        
         let homeVC = HomeViewController()
-        let movieVC = MovieViewController()
-        homeVC.tabBarItem = setBarItem(title: "Home", selectedImage: UIImage(named: "plus_photo"), normalImage: UIImage(named: "plus_photo"))
-        movieVC.tabBarItem = setBarItem(title: "Movie", selectedImage: UIImage(named: "plus_photo"), normalImage: UIImage(named: "plus_photo"))
-        listViewController = [homeVC, movieVC]
+        
+        let layout = UICollectionViewFlowLayout()
+        let userProfileVC = UserProfileController(collectionViewLayout: layout)
+        
+        homeVC.tabBarItem = setBarItem(title: "Home", selectedImage: UIImage(named: "profile_selected"), normalImage: UIImage(named: "profile_unselected"))
+        userProfileVC.tabBarItem = setBarItem(title: "Movie", selectedImage: UIImage(named: "profile_selected"), normalImage: UIImage(named: "profile_unselected"))
+        
+        listViewController = [homeVC, userProfileVC]
         for controller in listViewController {
             controller.tabBarItem.imageInsets = tabIconInsets
         }
