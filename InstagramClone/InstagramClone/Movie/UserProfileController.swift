@@ -7,24 +7,34 @@
 //
 
 import UIKit
+import Firebase
 
 class UserProfileController: UICollectionViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = .lightGray
-        // Do any additional setup after loading the view.
+        
+        navigationItem.title = "User profile"
+        
+        fetchUser()
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    fileprivate func fetchUser() {
+        guard let uid = Auth.auth().currentUser?.uid else {return}
+        Database.database().reference().child("users").child(uid).observe(.value, with: { (snapshot) in
+            print(snapshot.value)
+            
+            guard let dictionary = snapshot.value as? [String: Any] else { return }
+            let username = dictionary["username"] as? String
+            self.navigationItem.title = username
+            
+//            snapshot.dictionaryWithValues(forKeys: <#T##[String]#>)
+        }) { (err) in
+            print("Failed fetch user:", err )
+        }
     }
-    */
+
+    
 
 }
