@@ -27,6 +27,9 @@
 		B544B39B248EAC7300B6262B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B384248E077500B6262B /* HomeViewController.swift */; };
 		B544B39C248EAC7800B6262B /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B38C248E07AA00B6262B /* UserProfileController.swift */; };
 		B544B39D248EAC7800B6262B /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B38C248E07AA00B6262B /* UserProfileController.swift */; };
+		B544B39F248FF5F600B6262B /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B39E248FF5F600B6262B /* UserProfileHeader.swift */; };
+		B544B3A0248FF5F600B6262B /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B39E248FF5F600B6262B /* UserProfileHeader.swift */; };
+		B544B3A1248FF5F600B6262B /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B39E248FF5F600B6262B /* UserProfileHeader.swift */; };
 		B5D7C24A24856CCE00328163 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C24924856CCE00328163 /* AppDelegate.swift */; };
 		B5D7C24E24856CCE00328163 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C24D24856CCE00328163 /* ViewController.swift */; };
 		B5D7C25124856CCE00328163 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5D7C24F24856CCE00328163 /* Main.storyboard */; };
@@ -69,6 +72,7 @@
 		B544B38C248E07AA00B6262B /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
 		B544B38D248E07AA00B6262B /* UserProfileController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileController.xib; sourceTree = "<group>"; };
 		B544B394248E0A6E00B6262B /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
+		B544B39E248FF5F600B6262B /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
 		B5D7C24624856CCE00328163 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D7C24924856CCE00328163 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5D7C24D24856CCE00328163 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -144,13 +148,14 @@
 			path = HomeView;
 			sourceTree = "<group>";
 		};
-		B544B399248E112200B6262B /* Movie */ = {
+		B544B399248E112200B6262B /* UserProfile */ = {
 			isa = PBXGroup;
 			children = (
 				B544B38D248E07AA00B6262B /* UserProfileController.xib */,
 				B544B38C248E07AA00B6262B /* UserProfileController.swift */,
+				B544B39E248FF5F600B6262B /* UserProfileHeader.swift */,
 			);
-			path = Movie;
+			path = UserProfile;
 			sourceTree = "<group>";
 		};
 		B5D7C23D24856CCE00328163 = {
@@ -178,7 +183,7 @@
 		B5D7C24824856CCE00328163 /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
-				B544B399248E112200B6262B /* Movie */,
+				B544B399248E112200B6262B /* UserProfile */,
 				B544B398248E10F200B6262B /* HomeView */,
 				B544B37D248D610000B6262B /* Tabbar */,
 				B544B3732486B94100B6262B /* Utills */,
@@ -510,6 +515,7 @@
 				B544B3752486BA0C00B6262B /* Extensions.swift in Sources */,
 				B544B395248E0A6E00B6262B /* AppRouter.swift in Sources */,
 				B5D7C24E24856CCE00328163 /* ViewController.swift in Sources */,
+				B544B39F248FF5F600B6262B /* UserProfileHeader.swift in Sources */,
 				B544B37F248D613800B6262B /* MainTabBarController.swift in Sources */,
 				B544B38E248E07AA00B6262B /* UserProfileController.swift in Sources */,
 				B544B386248E077500B6262B /* HomeViewController.swift in Sources */,
@@ -524,6 +530,7 @@
 			files = (
 				B5D7C26424856CCF00328163 /* InstagramCloneTests.swift in Sources */,
 				B544B396248E0A6E00B6262B /* AppRouter.swift in Sources */,
+				B544B3A0248FF5F600B6262B /* UserProfileHeader.swift in Sources */,
 				B544B39B248EAC7300B6262B /* HomeViewController.swift in Sources */,
 				B544B39C248EAC7800B6262B /* UserProfileController.swift in Sources */,
 			);
@@ -535,6 +542,7 @@
 			files = (
 				B5D7C26F24856CD000328163 /* InstagramCloneUITests.swift in Sources */,
 				B544B397248E0A6E00B6262B /* AppRouter.swift in Sources */,
+				B544B3A1248FF5F600B6262B /* UserProfileHeader.swift in Sources */,
 				B544B39A248EAC7300B6262B /* HomeViewController.swift in Sources */,
 				B544B39D248EAC7800B6262B /* UserProfileController.swift in Sources */,
 			);
