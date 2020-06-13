@@ -132,31 +132,65 @@ class ViewController: UIViewController {
             guard let image = self.btnAddPhoto.imageView?.image else { return }
             guard let uploadData = image.jpegData(compressionQuality: 0.3) else { return }
             let filename = NSUUID().uuidString
+            let storageRef = Storage.storage().reference()
             
-            Storage.storage().reference().child("profile_image").child(filename).putData(uploadData, metadata: nil) { (metadata, err) in
+            storageRef.child("profile_image").child(filename).putData(uploadData, metadata: nil) { (metadata, err) in
                 if let err = err {
                     print("Failed to upload profile image:", err )
                     return
                 }
+                print("CuongTT_", metadata)
                 
-                guard let profileImageUrl = metadata?.path else {
-                    print("Can't get profile image url")
+                guard let urlString = metadata?.path as? String else {
+                    print(" Can't get urlstring")
                     return
                 }
                 
-                print("Successfully uploaded profile image", profileImageUrl )
+                print("AAAAAA__", urlString)
                 
-                guard let uid = user?.user.uid else { return }
-                let dictionaryValues = ["username": username, "profileImageUrl": profileImageUrl]
-                let values = [uid: dictionaryValues]
-                Database.database().reference().child("users").updateChildValues(values) { (err, ref) in
-                    if let err = err {
-                        print("Failed to save user info into db:", err)
+                /// khi upload file thì nên luu lại public URL. và luu trên firebase
+                /// Mục đích để sau này khi cần thì download trực tiếp luôn không cần phải parse URI. ->  URL
+                storageRef.child(urlString).downloadURL { (url, err) in
+                    guard let urlAvartar = url?.absoluteString else {
+                        print("Can't get url")
                         return
                     }
                     
-                    print("Successfully saved user info into db")
+                    print("Successfully uploaded profile image: ", urlAvartar)
+                    guard let uid = user?.user.uid else { return }
+                    let dictionaryValues = ["username": username, "profileImageUrl": urlAvartar]
+                    let values = [uid: dictionaryValues]
+                    Database.database().reference().child("users").updateChildValues(values) { (err, ref) in
+                        if let err = err {
+                            print("Failed to save user info into db:", err)
+                            return
+                        }
+                        
+                        print("Successfully saved user info into db")
+                    }
+                    
                 }
+                
+                // Test source
+                //                guard let profileImageUrl = metadata?.path else {
+                //                    print("Can't get profile image url")
+                //                    return
+                //                }
+                //
+                //                print("Successfully uploaded profile image", profileImageUrl )
+                //
+                //                guard let uid = user?.user.uid else { return }
+                //                let dictionaryValues = ["username": username, "profileImageUrl": profileImageUrl]
+                //                let values = [uid: dictionaryValues]
+                //                Database.database().reference().child("users").updateChildValues(values) { (err, ref) in
+                //                    if let err = err {
+                //                        print("Failed to save user info into db:", err)
+                //                        return
+                //                    }
+                //
+                //                    print("Successfully saved user info into db")
+                //                }
+                
                 
             }
             
