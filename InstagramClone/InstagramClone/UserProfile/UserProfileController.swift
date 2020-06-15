@@ -10,10 +10,10 @@ import UIKit
 import Firebase
 
 class UserProfileController: UICollectionViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.collectionView.backgroundColor = .lightGray
+        self.collectionView.backgroundColor = .white
         
         navigationItem.title = "User profile"
         
@@ -23,17 +23,20 @@ class UserProfileController: UICollectionViewController {
         // register UICollectionViewCell withReuseIdentifier: "headerId"
         collectionView.register(UserProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerId")
     }
-
+    
+    var user: User?
     fileprivate func fetchUser() {
         guard let uid = Auth.auth().currentUser?.uid else {return}
         Database.database().reference().child("users").child(uid).observe(.value, with: { (snapshot) in
-            print(snapshot.value)
-            
+            print(snapshot.value ?? "" )
             guard let dictionary = snapshot.value as? [String: Any] else { return }
-            let username = dictionary["username"] as? String
-            self.navigationItem.title = username
             
-//            snapshot.dictionaryWithValues(forKeys: <#T##[String]#>)
+            self.user = User(dictionary: dictionary)
+            
+            self.navigationItem.title = self.user?.username
+            
+            self.collectionView.reloadData()
+            
         }) { (err) in
             print("Failed fetch user:", err )
         }
@@ -45,21 +48,31 @@ class UserProfileController: UICollectionViewController {
     
     // Create header
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerId", for: indexPath)
+        let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerId", for: indexPath) as! UserProfileHeader
+        
+        header.user = self.user
         
         //not correct
-//        header.addSubview(UIView())
-                
+        //        header.addSubview(UIView())
+        
         return header
     }
-
     
-    
-
 }
 
 extension UserProfileController: UICollectionViewDelegateFlowLayout {
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-            return CGSize(width: self.view.frame.width , height: 200)
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: self.view.frame.width , height: 200)
+    }
+}
+
+struct User {
+    let username: String
+    let profileImageUrl: String
+    
+    init(dictionary: [String: Any]) {
+        self.username = dictionary["username"] as? String ?? ""
+        self.profileImageUrl = dictionary["profileImageUrl"] as? String ?? ""
+        
+    }
 }
