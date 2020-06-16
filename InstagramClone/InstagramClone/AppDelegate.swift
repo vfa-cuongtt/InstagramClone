@@ -34,8 +34,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func goToHome() {
         window = UIWindow(frame: UIScreen.main.bounds)
-        
-        window?.rootViewController = ViewController() //MainTabBarController()
+//        window?.rootViewController = ViewController() //MainTabBarController()
+        window?.rootViewController = SignUpController() //MainTabBarController()
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
     }
@@ -43,7 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func goToLogin() {
         window = UIWindow(frame: UIScreen.main.bounds)
         
-        window?.rootViewController = ViewController() //MainTabBarController()
+//        window?.rootViewController = ViewController() //MainTabBarController()
+        window?.rootViewController = SignUpController() //MainTabBarController()
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
     }

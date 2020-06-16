@@ -25,12 +25,39 @@ class UserProfileController: UICollectionViewController {
         
        // register UICollectionViewCell forCellWithReuseIdentifier "cellId"
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
+        
+        //Setup Logout button
+        setupLogoutButton()
+    }
+    
+    fileprivate func setupLogoutButton() {
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: UIImage(named: "gear")?.withRenderingMode(.alwaysOriginal), style: .plain, target: self, action: #selector(handleLogout))
+    }
+    
+    @objc func handleLogout() {
+        let alertController = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Log Out", style: .destructive, handler: { (_) in
+            
+            do {
+                try Auth.auth().signOut()
+                
+                
+            } catch let signOutErr {
+                print("Failed to sign out:", signOutErr )
+            }
+            
+            
+        }))
+        
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        present(alertController, animated: true, completion: nil)
     }
     
     // setup collection view with number item in section = 7
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 7
-    }
+    }  
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)

@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  SignUpController.swift
 //  InstagramClone
 //
 //  Created by vfa on 6/2/20.
@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class ViewController: UIViewController { 
+class SignUpController: UIViewController {
     
     let btnAddPhoto: UIButton = {
         let button = UIButton(type: .system)
@@ -83,7 +83,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        view.backgroundColor = .white
         view.addSubview(btnAddPhoto)
         
         // add active for constraint
@@ -220,7 +220,7 @@ class ViewController: UIViewController {
     
 }
 
-extension ViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+extension SignUpController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let editImage = info[.editedImage] as? UIImage {
             btnAddPhoto.setImage(editImage.withRenderingMode(.alwaysOriginal), for: .normal)
