@@ -81,16 +81,32 @@ class SignUpController: UIViewController {
         return btn
     }()
     
+    let alreadyHaveAccountButton: UIButton = {
+        let btn = UIButton(type: .system)
+        let attributtedTile = NSMutableAttributedString(string: "Already have an account?", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.lightGray])
+        
+        attributtedTile.append(NSAttributedString(string: "Sign In", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.rgb(red: 17, green: 154, blue: 237)]))
+        
+        btn.setAttributedTitle(attributtedTile, for: .normal)
+        
+//        btn.setTitle("Don't have an account? Sign Up.", for: .normal)
+        btn.addTarget(self, action: #selector(handleShowSignIn), for: .touchUpInside)
+        
+        return btn
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(btnAddPhoto)
+        view.addSubview(alreadyHaveAccountButton)
         
         // add active for constraint
         btnAddPhoto.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        //        btnAddPhoto.anchor(top: view.topAnchor, bottom: nil, left: nil, right: nil, paddingTop: 40, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 140, height: 140)
-        
         UIView.anchor(uiv: btnAddPhoto, top: view.topAnchor, bottom: nil, left: nil, right: nil, paddingTop: 40, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 140, height: 140)
+        UIView.anchor(uiv: alreadyHaveAccountButton, top: nil, bottom: view.bottomAnchor, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 50)
+        
+        
         setupInputField()
     }
     
@@ -217,6 +233,12 @@ class SignUpController: UIViewController {
         
         present(imagePickerController, animated: true, completion: nil)
     }
+    
+    @objc func handleShowSignIn()  {
+         let signUpController = SignUpController()
+         navigationController?.popViewController( animated: true)
+         
+     }
     
 }
 
