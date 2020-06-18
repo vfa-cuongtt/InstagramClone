@@ -14,11 +14,19 @@ class AppRouter {
     var rootNavigation: UINavigationController?
     
     /// Navigation root is Login flow
+    func openSignUp() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let windowApp = appDelegate.window else { return }
+        AppRouter.shared.rootNavigation = nil
+        let signUpVC = SignUpController()
+        let navigation = UINavigationController(rootViewController: signUpVC)
+        windowApp.rootViewController = navigation
+    }
+    
+    /// Open login view controller
     func openLogin() {
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let windowApp = appDelegate.window else { return }
         AppRouter.shared.rootNavigation = nil
-//        let loginVC = ViewController()
-        let loginVC = SignUpController()
+        let loginVC = LoginController()
         let navigation = UINavigationController(rootViewController: loginVC)
         windowApp.rootViewController = navigation
     }

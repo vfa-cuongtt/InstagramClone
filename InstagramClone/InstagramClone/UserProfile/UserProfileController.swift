@@ -40,7 +40,7 @@ class UserProfileController: UICollectionViewController {
             
             do {
                 try Auth.auth().signOut()
-                
+                AppRouter.shared.openLogin()
                 
             } catch let signOutErr {
                 print("Failed to sign out:", signOutErr )

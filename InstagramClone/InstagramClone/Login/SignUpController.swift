@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class SignUpController: UIViewController {
+class SignUpController: BaseViewController {
     
     let btnAddPhoto: UIButton = {
         let button = UIButton(type: .system)
@@ -89,7 +89,7 @@ class SignUpController: UIViewController {
         
         btn.setAttributedTitle(attributtedTile, for: .normal)
         
-//        btn.setTitle("Don't have an account? Sign Up.", for: .normal)
+        //        btn.setTitle("Don't have an account? Sign Up.", for: .normal)
         btn.addTarget(self, action: #selector(handleShowSignIn), for: .touchUpInside)
         
         return btn
@@ -183,6 +183,7 @@ class SignUpController: UIViewController {
                         }
                         
                         print("Successfully saved user info into db")
+                        AppRouter.shared.openHome()
                     }
                     
                 }
@@ -235,10 +236,10 @@ class SignUpController: UIViewController {
     }
     
     @objc func handleShowSignIn()  {
-         let signUpController = SignUpController()
-         navigationController?.popViewController( animated: true)
-         
-     }
+        let signUpController = SignUpController()
+        navigationController?.popViewController( animated: true)
+        
+    }
     
 }
 

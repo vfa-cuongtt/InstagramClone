@@ -7,17 +7,20 @@
 //
 
 import UIKit
-class LoginController: UIViewController {
+import Firebase
+
+class LoginController: BaseViewController {
     
     let logoContainerView: UIView = {
         let view = UIView()
         let logoImageView = UIImageView(image: UIImage(named: "Instagram_logo_white"))
         logoImageView.contentMode = .scaleAspectFit
-        logoImageView.backgroundColor = .red
-//        logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        logoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        //        logoImageView.backgroundColor = .red
+        
         
         view.addSubview(logoImageView)
+        logoImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        logoImageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         UIView.anchor(uiv: logoImageView, top: nil, bottom: nil, left: nil, right: nil, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 200, height: 50)
         
         view.backgroundColor = UIColor.rgb(red: 0, green: 120, blue: 175)
@@ -30,6 +33,7 @@ class LoginController: UIViewController {
         tf.backgroundColor = UIColor(white: 0, alpha: 0.03)
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
+        tf.addTarget(self, action: #selector(handleTextFieldInputChange), for: .editingChanged)
         return tf
     }()
     
@@ -40,6 +44,7 @@ class LoginController: UIViewController {
         tf.borderStyle = .roundedRect
         tf.font = UIFont.systemFont(ofSize: 14)
         tf.isSecureTextEntry = true
+        tf.addTarget(self, action: #selector(handleTextFieldInputChange), for: .editingChanged)
         return tf
     }()
     
@@ -54,7 +59,7 @@ class LoginController: UIViewController {
         btn.isEnabled = false
         
         // Add action
-//        btn.addTarget(self, action: #selector(handleSignUp), for: .touchUpInside)
+        btn.addTarget(self, action: #selector(handleLogin), for: .touchUpInside)
         
         return btn
     }()
@@ -67,7 +72,6 @@ class LoginController: UIViewController {
         attributtedTile.append(NSAttributedString(string: "Sign Up", attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: 14), NSAttributedString.Key.foregroundColor: UIColor.rgb(red: 17, green: 154, blue: 237)]))
         
         btn.setAttributedTitle(attributtedTile, for: .normal)
-        
         btn.setTitle("Don't have an account? Sign Up.", for: .normal)
         btn.addTarget(self, action: #selector(handleShowSignUp), for: .touchUpInside)
         
@@ -78,8 +82,9 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
-        navigationItem.setHidesBackButton(true, animated: true)
-
+        self.hidenNavigationBar()
+        self.setTextColorForNavigationBar()
+        
         view.addSubview(dontHaveAccountButton)
         view.addSubview(logoContainerView)
         
@@ -96,8 +101,6 @@ class LoginController: UIViewController {
         stackView.distribution = .fillEqually
         stackView.axis = .vertical
         stackView.spacing = 10
-        
-        
         view.addSubview(stackView)
         
         UIView.anchor(uiv: stackView, top: logoContainerView .bottomAnchor, bottom: nil, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 40, paddingBottom: 0, paddingLeft: 40, paddingRight: 40, width: 0, height: 140)
@@ -108,7 +111,33 @@ class LoginController: UIViewController {
         navigationController?.pushViewController(signUpController, animated: true)
         
     }
-    override var preferredStatusBarStyle: UIStatusBarStyle {
-        return .lightContent
+    
+    @objc func handleTextFieldInputChange() {
+        guard let email = emailTextField.text, !email.isEmpty, let password = passwordTextField.text, !password.isEmpty else {
+            
+            loginButton.backgroundColor = UIColor.rgb(red: 149, green: 204, blue: 255)
+            loginButton.isEnabled = false
+            return
+        }
+        
+        loginButton.backgroundColor = UIColor.rgb(red: 17, green: 154, blue: 237)
+        loginButton.isEnabled = true
+    }
+    
+    @objc func handleLogin() {
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+        Auth.auth().signIn(withEmail: email, password: password) { (user, err) in
+            if let err = err {
+                print("Failed to login with email:", err)
+                return
+            }
+            print("success ", user)
+            AppRouter.shared.openHome()
+            self.dismiss(animated: true, completion: nil)
+        }
     }
 }
+
+

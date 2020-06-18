@@ -16,35 +16,24 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        
         // setting Firebase
         FirebaseApp.configure()
         
-        window = UIWindow(frame: UIScreen.main.bounds)
-        
-        AppRouter.shared.openHome()
-//        AppRouter.shared.openLogin()
-//        window?.rootViewController = ViewController() //MainTabBarController()
-        window?.backgroundColor = .white
-        window?.makeKeyAndVisible()
-        
+        self.openWindows()
         return true
     }
     
-    func goToHome() {
-        window = UIWindow(frame: UIScreen.main.bounds)
-//        window?.rootViewController = ViewController() //MainTabBarController()
-        window?.rootViewController = SignUpController() //MainTabBarController()
-        window?.backgroundColor = .white
-        window?.makeKeyAndVisible()
-    }
-    
-    func goToLogin() {
+    /// Handle open Windows root
+    private func openWindows() {
         window = UIWindow(frame: UIScreen.main.bounds)
         
-//        window?.rootViewController = ViewController() //MainTabBarController()
-        window?.rootViewController = SignUpController() //MainTabBarController()
+        if Auth.auth().currentUser == nil {
+            print("Current User", Auth.auth().currentUser)
+            AppRouter.shared.openLogin()
+        } else {
+            print("Current User", Auth.auth().currentUser)
+            AppRouter.shared.openHome()
+        }
         window?.backgroundColor = .white
         window?.makeKeyAndVisible()
     }

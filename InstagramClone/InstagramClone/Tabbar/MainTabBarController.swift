@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import Firebase
 
 protocol TabbarProtocol: class {
     func tabbarSelected(index: Int)
@@ -28,20 +27,7 @@ class MainTabBarController: UITabBarController {
         super.viewDidLoad()
         self.delegate = self
         
-        if Auth.auth().currentUser == nil {
-            
-            DispatchQueue.main.async {
-                let loginController = LoginController()
-                let navController = UINavigationController(rootViewController: loginController)
-                self.present(navController, animated: true, completion: nil)
-            }
-            
-            
-            return
-        }
-        
-        self.setUpTabbar()
-        
+        setUpTabbar()
     }
     
     /// Set up view tabbar
