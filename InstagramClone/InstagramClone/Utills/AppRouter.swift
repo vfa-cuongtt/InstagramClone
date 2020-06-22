@@ -37,4 +37,13 @@ class AppRouter {
         let tabBar = MainTabBarController()
         windowApp.rootViewController = tabBar
     }
+    
+    /// open add photo
+    func openAddPhoto() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let windowApp = appDelegate.window else { return }
+        let layout = UICollectionViewFlowLayout()
+        let photoSelectorController = AddPhotoViewController(collectionViewLayout: layout)
+        let navigation = UINavigationController(rootViewController: photoSelectorController)
+        windowApp.rootViewController = navigation
+    }
 }

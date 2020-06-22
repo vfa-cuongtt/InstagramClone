@@ -11,6 +11,7 @@ import Firebase
 
 class UserProfileController: UICollectionViewController {
     let cellId = "cellId"
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.collectionView.backgroundColor = .white
@@ -23,7 +24,7 @@ class UserProfileController: UICollectionViewController {
         // register UICollectionViewCell withReuseIdentifier: "headerId"
         collectionView.register(UserProfileHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "headerId")
         
-       // register UICollectionViewCell forCellWithReuseIdentifier "cellId"
+        // register UICollectionViewCell forCellWithReuseIdentifier "cellId"
         collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         
         //Setup Logout button
@@ -54,30 +55,7 @@ class UserProfileController: UICollectionViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    // setup collection view with number item in section = 7
-    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 7
-    }  
     
-    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .purple
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 1
-    }
-    
-    // Setup size for cell
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let with = (view.frame.width - 2) / 3
-        return CGSize(width: with, height: with)
-    }
     
     var user: User?
     fileprivate func fetchUser() {
@@ -116,9 +94,41 @@ class UserProfileController: UICollectionViewController {
 }
 
 extension UserProfileController: UICollectionViewDelegateFlowLayout {
+    
+    /// setup collection view with number item in section = 7
+    override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 7
+    }
+    
+    /// setup item
+    override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        cell.backgroundColor = .purple
+        return cell
+    }
+    
+    /// set inter item space
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
+    /// set line spacing for item
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 1
+    }
+    
+    /// Setup size for cell
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let with = (view.frame.width - 2) / 3
+        return CGSize(width: with, height: with)
+    }
+    
+    /// set size for header
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         return CGSize(width: self.view.frame.width , height: 200)
     }
+    
+    
 }
 
 struct User {

@@ -36,15 +36,24 @@ class MainTabBarController: UITabBarController {
         self.tabBar.backgroundColor = .white
         navigationItem.setHidesBackButton(true, animated: true)
         
-        let homeVC = HomeViewController()
-        
         let layout = UICollectionViewFlowLayout()
+        
+        let homeVC = HomeViewController()
+        let searchVC = SearchViewController()
+        let addPhotoVC = AddPhotoViewController()
+        let likeVC = LikeViewController()
+        
+        
         let userProfileVC = UserProfileController(collectionViewLayout: layout)
         
-        homeVC.tabBarItem = setBarItem(title: "Home", selectedImage: UIImage(named: "profile_selected"), normalImage: UIImage(named: "profile_unselected"))
-        userProfileVC.tabBarItem = setBarItem(title: "Movie", selectedImage: UIImage(named: "profile_selected"), normalImage: UIImage(named: "profile_unselected"))
+        homeVC.tabBarItem = setBarItem(title: "", selectedImage: UIImage(named: "home_selected"), normalImage: UIImage(named: "home_unselected"))
+        searchVC.tabBarItem = setBarItem(title: "", selectedImage: UIImage(named: "search_selected"), normalImage: UIImage(named: "search_unselected"))
+        addPhotoVC.tabBarItem = setBarItem(title: "", selectedImage: UIImage(named: "plus_selected"), normalImage: UIImage(named: "plus_unselected"))
+        likeVC.tabBarItem = setBarItem(title: "", selectedImage: UIImage(named: "like_selected"), normalImage: UIImage(named: "like_unselected"))
         
-        listViewController = [homeVC, userProfileVC]
+        userProfileVC.tabBarItem = setBarItem(title: "", selectedImage: UIImage(named: "profile_selected"), normalImage: UIImage(named: "profile_unselected"))
+        
+        listViewController = [homeVC, searchVC, addPhotoVC, likeVC ,userProfileVC]
         for controller in listViewController {
             controller.tabBarItem.imageInsets = tabIconInsets
         }
@@ -76,5 +85,17 @@ extension MainTabBarController: UITabBarControllerDelegate {
     /// Event when click tabbar
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         tabbarDelagate?.tabbarSelected(index: tabBarController.selectedIndex)
+    }
+    
+    func tabBarController(_ tabBarController: UITabBarController, shouldSelect viewController: UIViewController) -> Bool {
+        let index = viewControllers?.index(of: viewController)
+        if index == 2 {
+            AppRouter.shared.openAddPhoto()
+            return false
+        } else {
+            return true
+        }
+        
+        
     }
 }
