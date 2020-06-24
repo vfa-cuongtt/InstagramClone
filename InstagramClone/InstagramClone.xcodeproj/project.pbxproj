@@ -45,6 +45,9 @@
 		B5B6A35F24A0F1920097C872 /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A35E24A0F1920097C872 /* LikeViewController.swift */; };
 		B5B6A36024A0F1920097C872 /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A35E24A0F1920097C872 /* LikeViewController.swift */; };
 		B5B6A36124A0F1920097C872 /* LikeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A35E24A0F1920097C872 /* LikeViewController.swift */; };
+		B5B6A36324A3B75B0097C872 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A36224A3B75B0097C872 /* PhotoSelectorCell.swift */; };
+		B5B6A36424A3B75C0097C872 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A36224A3B75B0097C872 /* PhotoSelectorCell.swift */; };
+		B5B6A36524A3B75C0097C872 /* PhotoSelectorCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A36224A3B75B0097C872 /* PhotoSelectorCell.swift */; };
 		B5D7C24A24856CCE00328163 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C24924856CCE00328163 /* AppDelegate.swift */; };
 		B5D7C24E24856CCE00328163 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C24D24856CCE00328163 /* SignUpController.swift */; };
 		B5D7C25124856CCE00328163 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5D7C24F24856CCE00328163 /* Main.storyboard */; };
@@ -93,6 +96,7 @@
 		B5B6A35624A0F16C0097C872 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B5B6A35A24A0F1810097C872 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		B5B6A35E24A0F1920097C872 /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
+		B5B6A36224A3B75B0097C872 /* PhotoSelectorCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorCell.swift; sourceTree = "<group>"; };
 		B5D7C24624856CCE00328163 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D7C24924856CCE00328163 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5D7C24D24856CCE00328163 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
@@ -207,6 +211,7 @@
 			isa = PBXGroup;
 			children = (
 				B5B6A35A24A0F1810097C872 /* AddPhotoViewController.swift */,
+				B5B6A36224A3B75B0097C872 /* PhotoSelectorCell.swift */,
 			);
 			path = AddPhotoView;
 			sourceTree = "<group>";
@@ -581,6 +586,7 @@
 				B544B395248E0A6E00B6262B /* AppRouter.swift in Sources */,
 				B5B6A35B24A0F1810097C872 /* AddPhotoViewController.swift in Sources */,
 				B53D6EFD249B0AAD0019943D /* BaseViewController.swift in Sources */,
+				B5B6A36324A3B75B0097C872 /* PhotoSelectorCell.swift in Sources */,
 				B5D7C24E24856CCE00328163 /* SignUpController.swift in Sources */,
 				B544B39F248FF5F600B6262B /* UserProfileHeader.swift in Sources */,
 				B544B37F248D613800B6262B /* MainTabBarController.swift in Sources */,
@@ -598,6 +604,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5B6A36424A3B75C0097C872 /* PhotoSelectorCell.swift in Sources */,
 				B5D7C26424856CCF00328163 /* InstagramCloneTests.swift in Sources */,
 				B53D6EF724993B880019943D /* LoginController.swift in Sources */,
 				B5B6A35824A0F16C0097C872 /* SearchViewController.swift in Sources */,
@@ -615,6 +622,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B5B6A36524A3B75C0097C872 /* PhotoSelectorCell.swift in Sources */,
 				B5D7C26F24856CD000328163 /* InstagramCloneUITests.swift in Sources */,
 				B53D6EF824993B880019943D /* LoginController.swift in Sources */,
 				B5B6A35924A0F16C0097C872 /* SearchViewController.swift in Sources */,
