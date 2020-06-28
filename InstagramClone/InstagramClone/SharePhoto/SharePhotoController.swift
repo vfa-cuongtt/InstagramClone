@@ -43,7 +43,7 @@ class SharePhotoController: BaseViewController {
         containerView.backgroundColor = .white
             
         
-        
+        view.addSubview(containerView)
         UIView.anchor(uiv: containerView, top: view.safeAreaLayoutGuide.topAnchor, bottom: nil, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 100)
         
 //        containerView.addSubview(imageView)
