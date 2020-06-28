@@ -36,6 +36,9 @@
 		B544B39F248FF5F600B6262B /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B39E248FF5F600B6262B /* UserProfileHeader.swift */; };
 		B544B3A0248FF5F600B6262B /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B39E248FF5F600B6262B /* UserProfileHeader.swift */; };
 		B544B3A1248FF5F600B6262B /* UserProfileHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = B544B39E248FF5F600B6262B /* UserProfileHeader.swift */; };
+		B54C8E5424A7A01400A55FE7 /* SharePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54C8E5324A7A01400A55FE7 /* SharePhotoController.swift */; };
+		B54C8E5524A7A01400A55FE7 /* SharePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54C8E5324A7A01400A55FE7 /* SharePhotoController.swift */; };
+		B54C8E5624A7A01400A55FE7 /* SharePhotoController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B54C8E5324A7A01400A55FE7 /* SharePhotoController.swift */; };
 		B5B6A35724A0F16C0097C872 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A35624A0F16C0097C872 /* SearchViewController.swift */; };
 		B5B6A35824A0F16C0097C872 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A35624A0F16C0097C872 /* SearchViewController.swift */; };
 		B5B6A35924A0F16C0097C872 /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5B6A35624A0F16C0097C872 /* SearchViewController.swift */; };
@@ -96,6 +99,7 @@
 		B544B38D248E07AA00B6262B /* UserProfileController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserProfileController.xib; sourceTree = "<group>"; };
 		B544B394248E0A6E00B6262B /* AppRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppRouter.swift; sourceTree = "<group>"; };
 		B544B39E248FF5F600B6262B /* UserProfileHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileHeader.swift; sourceTree = "<group>"; };
+		B54C8E5324A7A01400A55FE7 /* SharePhotoController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharePhotoController.swift; sourceTree = "<group>"; };
 		B5B6A35624A0F16C0097C872 /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		B5B6A35A24A0F1810097C872 /* AddPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPhotoViewController.swift; sourceTree = "<group>"; };
 		B5B6A35E24A0F1920097C872 /* LikeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LikeViewController.swift; sourceTree = "<group>"; };
@@ -203,6 +207,14 @@
 			path = UserProfile;
 			sourceTree = "<group>";
 		};
+		B54C8E5224A79FD100A55FE7 /* SharePhoto */ = {
+			isa = PBXGroup;
+			children = (
+				B54C8E5324A7A01400A55FE7 /* SharePhotoController.swift */,
+			);
+			path = SharePhoto;
+			sourceTree = "<group>";
+		};
 		B5B6A35324A0F1130097C872 /* SearchView */ = {
 			isa = PBXGroup;
 			children = (
@@ -254,6 +266,7 @@
 		B5D7C24824856CCE00328163 /* InstagramClone */ = {
 			isa = PBXGroup;
 			children = (
+				B54C8E5224A79FD100A55FE7 /* SharePhoto */,
 				B5B6A35524A0F1440097C872 /* LikeView */,
 				B5B6A35424A0F1250097C872 /* AddPhotoView */,
 				B5B6A35324A0F1130097C872 /* SearchView */,
@@ -597,6 +610,7 @@
 				B544B37F248D613800B6262B /* MainTabBarController.swift in Sources */,
 				B5B6A36724A5193A0097C872 /* PhotoSelectorHeader.swift in Sources */,
 				B5B6A35724A0F16C0097C872 /* SearchViewController.swift in Sources */,
+				B54C8E5424A7A01400A55FE7 /* SharePhotoController.swift in Sources */,
 				B544B38E248E07AA00B6262B /* UserProfileController.swift in Sources */,
 				B5B6A35F24A0F1920097C872 /* LikeViewController.swift in Sources */,
 				B544B386248E077500B6262B /* HomeViewController.swift in Sources */,
@@ -618,6 +632,7 @@
 				B53D6EF9249940A30019943D /* SignUpController.swift in Sources */,
 				B544B396248E0A6E00B6262B /* AppRouter.swift in Sources */,
 				B544B3A0248FF5F600B6262B /* UserProfileHeader.swift in Sources */,
+				B54C8E5524A7A01400A55FE7 /* SharePhotoController.swift in Sources */,
 				B544B39B248EAC7300B6262B /* HomeViewController.swift in Sources */,
 				B544B39C248EAC7800B6262B /* UserProfileController.swift in Sources */,
 				B5B6A35C24A0F1810097C872 /* AddPhotoViewController.swift in Sources */,
@@ -637,6 +652,7 @@
 				B53D6EFA249940A30019943D /* SignUpController.swift in Sources */,
 				B544B397248E0A6E00B6262B /* AppRouter.swift in Sources */,
 				B544B3A1248FF5F600B6262B /* UserProfileHeader.swift in Sources */,
+				B54C8E5624A7A01400A55FE7 /* SharePhotoController.swift in Sources */,
 				B544B39A248EAC7300B6262B /* HomeViewController.swift in Sources */,
 				B544B39D248EAC7800B6262B /* UserProfileController.swift in Sources */,
 				B5B6A35D24A0F1810097C872 /* AddPhotoViewController.swift in Sources */,

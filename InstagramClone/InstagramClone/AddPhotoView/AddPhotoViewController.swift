@@ -28,10 +28,11 @@ class AddPhotoViewController: UICollectionViewController {
         
         fetchPhotos()
     }
+
     fileprivate func assetsFetchOptions() -> PHFetchOptions {
         print("fetching photo")
         let fetchOptions = PHFetchOptions()
-        fetchOptions.fetchLimit = 15
+        fetchOptions.fetchLimit = 30
         let sortDesc = NSSortDescriptor(key: "creationDate", ascending: false)
         fetchOptions.sortDescriptors = [sortDesc]
         
@@ -81,7 +82,8 @@ class AddPhotoViewController: UICollectionViewController {
     }
     
     @objc func handleNext() {
-        print("handleNext")
+        let sharePhotoVC = SharePhotoController()
+        navigationController?.pushViewController(sharePhotoVC, animated: true)
         
     }
     
@@ -90,6 +92,7 @@ class AddPhotoViewController: UICollectionViewController {
         AppRouter.shared.openHome()
     }
     
+    /// set status bar is hidden
     override var prefersStatusBarHidden: Bool {
         return true
     }
@@ -100,6 +103,9 @@ class AddPhotoViewController: UICollectionViewController {
         self.selectedImage = arrImages[indexPath.item]
         self.collectionView?.reloadData()
         print("Item", selectedImage)
+        
+        let indexPath = IndexPath(item: 0, section: 0)
+        collectionView.scrollToItem(at: indexPath, at: .bottom, animated: true)
     }
 }
 
@@ -164,9 +170,8 @@ extension AddPhotoViewController: UICollectionViewDelegateFlowLayout {
                 }
             }
         }
-        
-        
-        
+
         return header
     }
+    
 }
