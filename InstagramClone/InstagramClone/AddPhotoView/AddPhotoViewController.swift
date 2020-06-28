@@ -16,6 +16,7 @@ class AddPhotoViewController: UICollectionViewController {
     var arrImages = [UIImage]()
     var selectedImage:UIImage?
     var assets = [PHAsset]()
+    var header: PhotoSelectorHeader?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -83,6 +84,7 @@ class AddPhotoViewController: UICollectionViewController {
     
     @objc func handleNext() {
         let sharePhotoVC = SharePhotoController()
+        sharePhotoVC.selectedImage = header?.photoImageView.image
         navigationController?.pushViewController(sharePhotoVC, animated: true)
         
     }
@@ -155,8 +157,8 @@ extension AddPhotoViewController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: headerId, for: indexPath) as! PhotoSelectorHeader
+        self.header = header
         header.photoImageView.image = selectedImage
-        
         /// set quality for image selected
         if let selectedImage = selectedImage {
             if let index = self.arrImages.index(of: selectedImage) {
