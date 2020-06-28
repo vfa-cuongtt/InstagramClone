@@ -7,8 +7,10 @@
 //
 
 import UIKit
-
+import Firebase
 class SharePhotoController: BaseViewController {
+    let storageRef = Storage.storage().reference()
+    
     var selectedImage: UIImage? {
         didSet{
             self.imageView.image = selectedImage
@@ -16,7 +18,7 @@ class SharePhotoController: BaseViewController {
     }
     
     let imageView : UIImageView = {
-       let iv = UIImageView()
+        let iv = UIImageView()
         iv.backgroundColor = .red
         iv.contentMode = .scaleAspectFill
         iv.clipsToBounds = true
@@ -28,7 +30,7 @@ class SharePhotoController: BaseViewController {
         tv.font = UIFont.systemFont(ofSize: 14)
         return tv
     }()
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.rgb(red: 240, green: 240, blue: 240)
@@ -44,7 +46,7 @@ class SharePhotoController: BaseViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
-
+    
     fileprivate func setupNavigationButton() {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Share", style: .plain, target: self, action: #selector(handleShare))
     }
@@ -52,7 +54,7 @@ class SharePhotoController: BaseViewController {
     fileprivate func setupImageAndTextView() {
         let containerView = UIView()
         containerView.backgroundColor = .white
-            
+        
         
         view.addSubview(containerView)
         UIView.anchor(uiv: containerView, top: view.safeAreaLayoutGuide.topAnchor, bottom: nil, left: view.leftAnchor, right: view.rightAnchor, paddingTop: 0, paddingBottom: 0, paddingLeft: 0, paddingRight: 0, width: 0, height: 100)
@@ -65,6 +67,68 @@ class SharePhotoController: BaseViewController {
     }
     
     @objc func handleShare() {
-        print("Handle Share")
+        guard let caption = textView.text, !caption.isEmpty else { return }
+        guard let image = selectedImage else { return }
+        guard let uploadData = image.jpegData(compressionQuality: 0.5) else { return }
+        
+        navigationItem.rightBarButtonItem?.isEnabled = false
+        
+        let filename = NSUUID().uuidString
+        storageRef.child("post").child(filename).putData(uploadData, metadata: nil) { (metadata, err) in
+            if let err = err {
+                print("Failed to podt image:", err)
+                return
+            }
+            
+            
+            guard let urlString = metadata?.path as? String else {
+                print(" Can't get urlstring")
+                return
+            }
+            print("Successfully uploaded post image:", urlString)
+            
+            self.storageRef.child(urlString).downloadURL { (url, err) in
+                if let err = err {
+                    self.navigationItem.rightBarButtonItem?.isEnabled = true
+                    print("Failed to download url")
+                    return
+                }
+                
+                print("URL", url )
+                
+                guard let imageUrl = url?.absoluteString else {
+                    print("Can't get url")
+                    return
+                }
+                self.saveToDatabaseWithImageUrl(imageUrl: imageUrl)
+            }
+            
+        }
+    }
+    
+    fileprivate func saveToDatabaseWithImageUrl(imageUrl: String) {
+        guard  let postImage = selectedImage else { return }
+        guard let caption = textView.text else { return }
+        
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        let userPostRef = Database.database().reference().child("post").child(uid)
+        let ref = userPostRef.childByAutoId()
+        let creationDate = Date().timeIntervalSince1970
+        let imageWidth = postImage.size.width
+        let imageHeight = postImage.size.height
+        
+        let values = ["imageUrl": imageUrl, "caption": caption, "imageWidth": imageWidth, "imageHeight": imageHeight, "creationDate": creationDate] as [String : Any]
+        ref.updateChildValues(values) { (err, ref) in
+            if let err = err {
+                print("Failed to save post to DB", err)
+                self.navigationItem.rightBarButtonItem?.isEnabled = true
+                
+                return
+            }
+        }
+        
+        print("Success to save post to DB", ref)
+        self.dismiss(animated: true, completion: nil)
     }
 }
