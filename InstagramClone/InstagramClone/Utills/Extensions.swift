@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 extension UIColor {
     static func rgb(red: CGFloat, green: CGFloat, blue: CGFloat) -> UIColor {
@@ -46,3 +47,12 @@ extension UIView {
         }
     }
 }
+
+//func getCurrentUserUid() -> String {
+//    guard let uid = Auth.auth().currentUser?.uid else {
+//        print("Cant get uid")
+//        return ""
+//    }
+//    
+//    return uid
+//}
