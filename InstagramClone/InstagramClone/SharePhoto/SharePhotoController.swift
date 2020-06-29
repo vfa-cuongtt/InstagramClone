@@ -130,6 +130,7 @@ class SharePhotoController: BaseViewController {
         }
         
         print("Success to save post to DB", ref)
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
+        AppRouter.shared.openHome()
     }
 }

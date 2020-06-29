@@ -12,14 +12,15 @@ import Firebase
 class UserProfileHeader: UICollectionViewCell {
     var user:User? {
         didSet{
-            setupProfileImage()
+            guard let profileImageUrl = user?.profileImageUrl else { return }
+            profileImageView.loadImage(urlString: profileImageUrl)
             
             lblUsername.text = user?.username
         }
     }
     
-    let profileImageView: UIImageView = {
-        let iv = UIImageView()
+    let profileImageView: CustomImageView = {
+        let iv = CustomImageView()
         
         return iv
     }()
@@ -175,31 +176,31 @@ class UserProfileHeader: UICollectionViewCell {
     
     
     
-    /// Setup profile image
-    fileprivate func setupProfileImage() {
-        print("Did set \(user?.username)")
-        guard let profileImgUrl = user?.profileImageUrl else {return}
-        guard let url = URL(string: profileImgUrl)  else { return }
-        
-        URLSession.shared.dataTask(with: url) { (data, response, err) in
-            // Check for error, then contruct the image using data
-            if let err = err {
-                print(" Failed to fetch profile image", err )
-                return
-            }
-            
-            print("test: ", data)
-            guard let data = data else {return }
-            let image = UIImage(data: data)
-            
-            // need to get back onto the main UI thread
-            DispatchQueue.main.sync {
-                self.profileImageView.image = image
-            }
-            
-        }.resume()
-        
-    }
+//    /// Setup profile image
+//    fileprivate func setupProfileImage() {
+//        print("Did set \(user?.username)")
+//        guard let profileImgUrl = user?.profileImageUrl else {return}
+//        guard let url = URL(string: profileImgUrl)  else { return }
+//        
+//        URLSession.shared.dataTask(with: url) { (data, response, err) in
+//            // Check for error, then contruct the image using data
+//            if let err = err {
+//                print(" Failed to fetch profile image", err )
+//                return
+//            }
+//            
+//            print("test: ", data)
+//            guard let data = data else {return }
+//            let image = UIImage(data: data)
+//            
+//            // need to get back onto the main UI thread
+//            DispatchQueue.main.sync {
+//                self.profileImageView.image = image
+//            }
+//            
+//        }.resume()
+//        
+//    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
