@@ -38,7 +38,7 @@ class MainTabBarController: UITabBarController {
         
         let layout = UICollectionViewFlowLayout()
         
-        let homeVC = HomeViewController()
+        let homeVC = HomeViewController(collectionViewLayout: layout)
         let searchVC = SearchViewController()
         let addPhotoVC = AddPhotoViewController()
         let likeVC = LikeViewController()

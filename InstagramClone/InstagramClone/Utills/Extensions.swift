@@ -48,11 +48,4 @@ extension UIView {
     }
 }
 
-//func getCurrentUserUid() -> String {
-//    guard let uid = Auth.auth().currentUser?.uid else {
-//        print("Cant get uid")
-//        return ""
-//    }
-//    
-//    return uid
-//}
+
