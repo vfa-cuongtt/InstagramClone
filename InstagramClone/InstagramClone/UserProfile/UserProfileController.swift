@@ -136,35 +136,6 @@ extension UserProfileController: UICollectionViewDelegateFlowLayout {
         return CGSize(width: self.view.frame.width , height: 200)
     }
     
-//    /// Fetch post by of user
-//    fileprivate func fetchPost() {
-//        print("fetch post")
-//        guard let uid = Auth.auth().currentUser?.uid else { return }
-//        
-//        let ref = Database.database().reference().child("post").child(uid)
-//        ref.observeSingleEvent(of: .value, with: { (snapshot) in
-////            print(snapshot.value)
-//            
-//            guard let dictionaries = snapshot.value as? [String: Any] else { return }
-//            dictionaries.forEach { (key , value) in
-//                print("Key: \(key), Value: \(value)")
-//                
-//                guard let dictionary = value as? [String: Any] else { return }
-//                let imageUrl = dictionary["imageUrl"] as? String
-////                print("imageUrl___", imageUrl)
-//                
-//                let post = Post(dictionary: dictionary)
-////                print("Post__ \(post.imageUrl)")
-//                self.posts.append(post)
-//            }
-//            
-//            self.collectionView.reloadData()
-//            
-//        }) { (err) in
-//            print("Failed to fetch post:", err)
-//        }
-//    }
-    
     fileprivate func fetchOrderedPost() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         let ref = Database.database().reference().child("post").child(uid)
@@ -174,8 +145,11 @@ extension UserProfileController: UICollectionViewDelegateFlowLayout {
             print(snapshot.key, snapshot.value)
             guard let dictionary = snapshot.value as? [String: Any] else { return }
             
-            let post = Post(dictionary: dictionary)
-            self.posts.append(post)
+            guard let user = self.user else { return }
+            
+            let post = Post(user: user, dictionary: dictionary)
+            self.posts.insert(post, at: 0)
+//            self.posts.append(post)
             self.collectionView.reloadData()
             
         }) { (err) in
@@ -184,13 +158,4 @@ extension UserProfileController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-struct User {
-    let username: String
-    let profileImageUrl: String
-    
-    init(dictionary: [String: Any]) {
-        self.username = dictionary["username"] as? String ?? ""
-        self.profileImageUrl = dictionary["profileImageUrl"] as? String ?? ""
-        
-    }
-}
+
