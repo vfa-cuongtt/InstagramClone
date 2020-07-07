@@ -12,6 +12,7 @@ import Firebase
 class UserProfileController: UICollectionViewController {
     let cellId = "cellId"
     var posts = [Post]()
+    var user: User?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,6 @@ class UserProfileController: UICollectionViewController {
         //Setup Logout button
         setupLogoutButton()
         
-//        fetchPost()
         fetchOrderedPost()
         
     }
@@ -60,23 +60,12 @@ class UserProfileController: UICollectionViewController {
         present(alertController, animated: true, completion: nil)
     }
     
-    
-    
-    var user: User?
     fileprivate func fetchUser() {
         guard let uid = Auth.auth().currentUser?.uid else {return}
-        Database.database().reference().child("users").child(uid).observe(.value, with: { (snapshot) in
-            print(snapshot.value ?? "" )
-            guard let dictionary = snapshot.value as? [String: Any] else { return }
-            
-            self.user = User(dictionary: dictionary)
-            
+        Database.fetchUserWithUID(uid: uid) { (user) in
+            self.user = user
             self.navigationItem.title = self.user?.username
-            
             self.collectionView.reloadData()
-            
-        }) { (err) in
-            print("Failed fetch user:", err )
         }
     }
     
@@ -149,7 +138,7 @@ extension UserProfileController: UICollectionViewDelegateFlowLayout {
             
             let post = Post(user: user, dictionary: dictionary)
             self.posts.insert(post, at: 0)
-//            self.posts.append(post)
+            //            self.posts.append(post)
             self.collectionView.reloadData()
             
         }) { (err) in

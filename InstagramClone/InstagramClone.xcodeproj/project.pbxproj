@@ -66,6 +66,9 @@
 		B5C3CF6324B3A8E300C207C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3CF6224B3A8E300C207C8 /* User.swift */; };
 		B5C3CF6424B3A8E300C207C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3CF6224B3A8E300C207C8 /* User.swift */; };
 		B5C3CF6524B3A8E300C207C8 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3CF6224B3A8E300C207C8 /* User.swift */; };
+		B5C3CF6724B4C19700C207C8 /* FirebaseUtills.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3CF6624B4C19700C207C8 /* FirebaseUtills.swift */; };
+		B5C3CF6824B4C19700C207C8 /* FirebaseUtills.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3CF6624B4C19700C207C8 /* FirebaseUtills.swift */; };
+		B5C3CF6924B4C19700C207C8 /* FirebaseUtills.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5C3CF6624B4C19700C207C8 /* FirebaseUtills.swift */; };
 		B5D7C24A24856CCE00328163 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C24924856CCE00328163 /* AppDelegate.swift */; };
 		B5D7C24E24856CCE00328163 /* SignUpController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B5D7C24D24856CCE00328163 /* SignUpController.swift */; };
 		B5D7C25124856CCE00328163 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B5D7C24F24856CCE00328163 /* Main.storyboard */; };
@@ -121,6 +124,7 @@
 		B5B6A36624A5193A0097C872 /* PhotoSelectorHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoSelectorHeader.swift; sourceTree = "<group>"; };
 		B5C3CF5E24ACF79E00C207C8 /* HomePostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomePostCell.swift; sourceTree = "<group>"; };
 		B5C3CF6224B3A8E300C207C8 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		B5C3CF6624B4C19700C207C8 /* FirebaseUtills.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseUtills.swift; sourceTree = "<group>"; };
 		B5D7C24624856CCE00328163 /* InstagramClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InstagramClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B5D7C24924856CCE00328163 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B5D7C24D24856CCE00328163 /* SignUpController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpController.swift; sourceTree = "<group>"; };
@@ -194,6 +198,7 @@
 				B544B394248E0A6E00B6262B /* AppRouter.swift */,
 				B54C8E6024AA516700A55FE7 /* CustomImageView.swift */,
 				B54C8E7224AB5B9400A55FE7 /* Utills.swift */,
+				B5C3CF6624B4C19700C207C8 /* FirebaseUtills.swift */,
 			);
 			path = Utills;
 			sourceTree = "<group>";
@@ -627,6 +632,7 @@
 				B5B6A35B24A0F1810097C872 /* AddPhotoViewController.swift in Sources */,
 				B53D6EFD249B0AAD0019943D /* BaseViewController.swift in Sources */,
 				B54C8E5D24AA3F4200A55FE7 /* UserProfilePhotoCell.swift in Sources */,
+				B5C3CF6724B4C19700C207C8 /* FirebaseUtills.swift in Sources */,
 				B5B6A36324A3B75B0097C872 /* PhotoSelectorCell.swift in Sources */,
 				B5D7C24E24856CCE00328163 /* SignUpController.swift in Sources */,
 				B54C8E7324AB5B9400A55FE7 /* Utills.swift in Sources */,
@@ -657,6 +663,7 @@
 				B5C3CF6024ACF79E00C207C8 /* HomePostCell.swift in Sources */,
 				B5D7C26424856CCF00328163 /* InstagramCloneTests.swift in Sources */,
 				B53D6EF724993B880019943D /* LoginController.swift in Sources */,
+				B5C3CF6824B4C19700C207C8 /* FirebaseUtills.swift in Sources */,
 				B5B6A35824A0F16C0097C872 /* SearchViewController.swift in Sources */,
 				B54C8E5E24AA3F4200A55FE7 /* UserProfilePhotoCell.swift in Sources */,
 				B54C8E5A24AA3BBA00A55FE7 /* Post.swift in Sources */,
@@ -683,6 +690,7 @@
 				B5C3CF6124ACF79E00C207C8 /* HomePostCell.swift in Sources */,
 				B5D7C26F24856CD000328163 /* InstagramCloneUITests.swift in Sources */,
 				B53D6EF824993B880019943D /* LoginController.swift in Sources */,
+				B5C3CF6924B4C19700C207C8 /* FirebaseUtills.swift in Sources */,
 				B5B6A35924A0F16C0097C872 /* SearchViewController.swift in Sources */,
 				B54C8E5F24AA3F4200A55FE7 /* UserProfilePhotoCell.swift in Sources */,
 				B54C8E5B24AA3BBA00A55FE7 /* Post.swift in Sources */,
