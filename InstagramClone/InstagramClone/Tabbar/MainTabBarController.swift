@@ -39,7 +39,7 @@ class MainTabBarController: UITabBarController {
         let layout = UICollectionViewFlowLayout()
         
         let homeVC = HomeViewController(collectionViewLayout: layout)
-        let searchVC = SearchViewController()
+        let searchVC = UserSearchController(collectionViewLayout: layout)
         let addPhotoVC = AddPhotoViewController()
         let likeVC = LikeViewController()
         

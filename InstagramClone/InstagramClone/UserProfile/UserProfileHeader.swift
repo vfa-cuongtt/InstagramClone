@@ -84,7 +84,7 @@ class UserProfileHeader: UICollectionViewCell {
         lb.attributedText = attributedText
         lb.textAlignment = .center
         lb.numberOfLines = 0
-        return lb
+        return lb 
     }()
     
     let lblFollowing: UILabel = {
