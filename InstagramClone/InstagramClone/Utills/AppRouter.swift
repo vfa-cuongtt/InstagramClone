@@ -46,4 +46,12 @@ class AppRouter {
         let navigation = UINavigationController(rootViewController: photoSelectorController)
         windowApp.rootViewController = navigation
     }
+    
+    func openUserProfile() {
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate, let windowApp = appDelegate.window else { return }
+        let layout = UICollectionViewFlowLayout()
+        let userProfileController = UserProfileController(collectionViewLayout: layout)
+        let navigation = UINavigationController(rootViewController: userProfileController)
+        windowApp.rootViewController = navigation
+    }
 }

@@ -35,8 +35,28 @@ class UserSearchController: UICollectionViewController {
         
         collectionView.register(UserSearchCell.self , forCellWithReuseIdentifier: cellId)
         collectionView.alwaysBounceVertical = true
+        collectionView.keyboardDismissMode = .onDrag
         
         fetchUsers()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        searchBar.isHidden = false
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let user = filteredUsers[indexPath.item]
+        print(user.username)
+        searchBar.isHidden = true
+        searchBar.resignFirstResponder()
+        
+        
+        let userProfileController = UserProfileController(collectionViewLayout: UICollectionViewFlowLayout())
+        
+        userProfileController.userId = user.uid
+        navigationController?.pushViewController(userProfileController, animated: true)
+        
     }
     
     fileprivate func  fetchUsers(){
@@ -45,6 +65,12 @@ class UserSearchController: UICollectionViewController {
             guard let dictionaries = snapshot.value as? [String: Any]
                 else {return}
             dictionaries.forEach { (key, value) in
+                
+                if key == Auth.auth().currentUser?.uid {
+                    print("Found myself.omit from list")
+                    return
+                }
+                
                 guard let userDictionary = value as? [String: Any] else { return }
                 
                 let user = User(uid: key, dictionary: userDictionary)
@@ -73,8 +99,6 @@ class UserSearchController: UICollectionViewController {
                 return user.username.lowercased().contains(searchText.lowercased())
             })
         }
-        
-        
         
         self.collectionView.reloadData()
     }

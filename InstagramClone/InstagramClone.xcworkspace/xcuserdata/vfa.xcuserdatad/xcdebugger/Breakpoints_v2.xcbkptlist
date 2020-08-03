@@ -87,38 +87,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "A26AA81A-0149-4C14-ABCA-ADC7FE05B333"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstagramClone/Utills/AppRouter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "openHome()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "9406A3AD-5AA9-428A-95EC-39CE81A8D4CE"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "InstagramClone/Utills/AppRouter.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "38"
-            endingLineNumber = "38"
-            landmarkName = "openHome()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "520FA896-C6DF-4AC2-8C47-C80C44FB367F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -183,32 +151,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "67BD2139-BC14-4A10-A27A-4BF5DE2AE414"
-            shouldBeEnabled = "No"
+            uuid = "4DE502C9-D32F-43E6-B710-2A3DEB33AB31"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstagramClone/Utills/AppRouter.swift"
+            filePath = "InstagramClone/SearchView/UserSearchController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
-            landmarkName = "openAddPhoto()"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "collectionView(_:didSelectItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "80D565F9-CE44-42A6-9566-ED56C3C98DB1"
-            shouldBeEnabled = "No"
+            uuid = "909ED6B5-DA81-4CDE-8684-5838D0AD5E58"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "InstagramClone/Utills/AppRouter.swift"
+            filePath = "InstagramClone/UserProfile/UserProfileController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
-            landmarkName = "openAddPhoto()"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "fetchOrderedPost()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

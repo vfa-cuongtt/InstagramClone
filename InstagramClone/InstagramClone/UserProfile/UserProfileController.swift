@@ -13,6 +13,7 @@ class UserProfileController: UICollectionViewController {
     let cellId = "cellId"
     var posts = [Post]()
     var user: User?
+    var userId: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,7 +21,7 @@ class UserProfileController: UICollectionViewController {
         
         navigationItem.title = "User profile"
         
-        fetchUser()
+        
         setupTopHeaderProfile()
         
         // register UICollectionViewCell withReuseIdentifier: "headerId"
@@ -31,8 +32,8 @@ class UserProfileController: UICollectionViewController {
         
         //Setup Logout button
         setupLogoutButton()
-        
-        fetchOrderedPost()
+        fetchUser()
+//        fetchOrderedPost()
         
     }
     
@@ -61,11 +62,14 @@ class UserProfileController: UICollectionViewController {
     }
     
     fileprivate func fetchUser() {
-        guard let uid = Auth.auth().currentUser?.uid else {return}
+//        guard let uid = Auth.auth().currentUser?.uid else {return}
+        let uid = userId ?? (Auth.auth().currentUser?.uid ?? "")
         Database.fetchUserWithUID(uid: uid) { (user) in
             self.user = user
             self.navigationItem.title = self.user?.username
             self.collectionView.reloadData()
+            
+            self.fetchOrderedPost()
         }
     }
     
@@ -126,12 +130,13 @@ extension UserProfileController: UICollectionViewDelegateFlowLayout {
     }
     
     fileprivate func fetchOrderedPost() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+//        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        guard  let uid = self.user?.uid else { return }
         let ref = Database.database().reference().child("post").child(uid)
         
         // perhaps later on we'll implement some pagination of data
         ref.queryOrdered(byChild: "creationDate").observe(.childAdded, with: { (snapshot) in
-            print(snapshot.key, snapshot.value)
             guard let dictionary = snapshot.value as? [String: Any] else { return }
             
             guard let user = self.user else { return }
