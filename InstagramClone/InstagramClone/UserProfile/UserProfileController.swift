@@ -132,7 +132,8 @@ extension UserProfileController: UICollectionViewDelegateFlowLayout {
     fileprivate func fetchOrderedPost() {
 //        guard let uid = Auth.auth().currentUser?.uid else { return }
         
-        guard  let uid = self.user?.uid else { return }
+        guard  let uid = self.user?.uid else {
+return }
         let ref = Database.database().reference().child("post").child(uid)
         
         // perhaps later on we'll implement some pagination of data
