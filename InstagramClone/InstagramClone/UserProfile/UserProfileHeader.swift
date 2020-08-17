@@ -10,6 +10,8 @@ import UIKit
 import Firebase
 
 class UserProfileHeader: UICollectionViewCell {
+    var isSelect:Bool = false
+    
     var user:User? {
         didSet{
             guard let profileImageUrl = user?.profileImageUrl else { return }
@@ -36,6 +38,7 @@ class UserProfileHeader: UICollectionViewCell {
                 
                 if let isFollowing = snapshot.value as? Int, isFollowing == 1 {
                     self.editProfileFollowButton.setTitle("Unfollow", for: .normal)
+                    self.isSelect = true
                 } else {
                     self.setupFollowStyle()
                 }
@@ -208,11 +211,15 @@ class UserProfileHeader: UICollectionViewCell {
     }
     
     @objc func handleEditProfileOrFollow() {
-        print("Edit or Follow")
+        print("_______")
         guard let currentLoggedInUserId = Auth.auth().currentUser?.uid else { return }
         guard let userId = user?.uid else { return }
         
-        if editProfileFollowButton.titleLabel?.text == "Unfollow" {
+        print("Button title: ", (editProfileFollowButton.titleLabel?.text)!)
+        print("isSelect:", isSelect)
+//        editProfileFollowButton.isSelected
+//        if editProfileFollowButton.titleLabel?.text == "Unfollow" {
+        if isSelect == true {
             // Unfollow
             Database.database().reference().child("following").child(currentLoggedInUserId).child(userId).removeValue { (err, ref) in
                 if let err = err {
@@ -221,10 +228,13 @@ class UserProfileHeader: UICollectionViewCell {
                 }
                 print("Successfully unfollowed user:", self.user?.username ?? "")
                 self.setupFollowStyle()
+                
             }
+            print("Follow")
+            
         } else {
             // Follow
-            
+            print("Unfollow")
             let ref = Database.database().reference().child("following").child(currentLoggedInUserId)
             let values = [userId: 1]
             ref.updateChildValues(values) { (err, ref) in
@@ -233,11 +243,14 @@ class UserProfileHeader: UICollectionViewCell {
                     return
                 }
                 print("Successfully followed user:", self.user?.username ?? "")
-                self.editProfileFollowButton.setTitle("Unfollow ", for: .normal)
-                self.editProfileFollowButton.backgroundColor = .white
-                self.editProfileFollowButton.setTitleColor(.black, for: .normal)
+                self.setupUnfollowStyle()
+                
             }
+            
+
         }
+        
+        print("isSelect2:", isSelect)
         
     }
     
@@ -246,33 +259,15 @@ class UserProfileHeader: UICollectionViewCell {
         self.editProfileFollowButton.backgroundColor = UIColor.rgb(red: 17, green: 154, blue: 237)
         self.editProfileFollowButton.setTitleColor(.white, for: .normal)
         self.editProfileFollowButton.layer.borderColor = UIColor(white: 0, alpha: 0.2).cgColor
+        self.isSelect = false
     }
     
-//    /// Setup profile image
-//    fileprivate func setupProfileImage() {
-//        print("Did set \(user?.username)")
-//        guard let profileImgUrl = user?.profileImageUrl else {return}
-//        guard let url = URL(string: profileImgUrl)  else { return }
-//        
-//        URLSession.shared.dataTask(with: url) { (data, response, err) in
-//            // Check for error, then contruct the image using data
-//            if let err = err {
-//                print(" Failed to fetch profile image", err )
-//                return
-//            }
-//            
-//            print("test: ", data)
-//            guard let data = data else {return }
-//            let image = UIImage(data: data)
-//            
-//            // need to get back onto the main UI thread
-//            DispatchQueue.main.sync {
-//                self.profileImageView.image = image
-//            }
-//            
-//        }.resume()
-//        
-//    }
+    fileprivate func setupUnfollowStyle() {
+        self.editProfileFollowButton.setTitle("Unfollow ", for: .normal)
+        self.editProfileFollowButton.backgroundColor = .white
+        self.editProfileFollowButton.setTitleColor(.black, for: .normal)
+        self.isSelect = true
+    }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

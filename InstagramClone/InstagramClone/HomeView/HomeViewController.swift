@@ -23,6 +23,23 @@ class HomeViewController: UICollectionViewController {
         setupNavigationItems()
         
         fetchPost()
+        
+        fetchFollowingUserIds()
+        
+    }
+    
+    fileprivate func fetchFollowingUserIds() {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        Database.database().reference().child("following").child(uid).observeSingleEvent(of: .value) { (snapshot ) in
+            print(snapshot.value)
+            
+            guard let userIdsDictionary = snapshot.value as? [String: Any] else { return }
+            userIdsDictionary.forEach { (key, value) in
+                Database.fetchUserWithUID(uid: key) { (user) in
+                    self.fetchPostWithUser(user: user)
+                }
+            }
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -72,6 +89,11 @@ class HomeViewController: UICollectionViewController {
                 
                 
                 self.posts.append(post)
+            }
+            
+            // Sort Post new feeds
+            self.posts.sort { (p1, p2) -> Bool in
+                return p1.creationDate.compare(p2.creationDate) == .orderedDescending
             }
             
             self.collectionView.reloadData()

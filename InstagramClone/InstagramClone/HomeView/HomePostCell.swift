@@ -142,7 +142,10 @@ class HomePostCell: UICollectionViewCell {
         
         attributedtext.append(NSAttributedString(string: "\n\n", attributes: attrFont))
         
-        attributedtext.append(NSAttributedString(string: "1 week ago", attributes: attrFontAndColor ))
+        // Set display time post ago
+        let timeAgoDisplay = post.creationDate.timeAgoDisplay()
+        
+        attributedtext.append(NSAttributedString(string: timeAgoDisplay, attributes: attrFontAndColor ))
         
         self.captionLabel.attributedText = attributedtext
     }
