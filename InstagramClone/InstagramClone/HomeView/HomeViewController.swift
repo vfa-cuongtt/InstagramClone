@@ -16,23 +16,46 @@ class HomeViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let name = NSNotification.Name(rawValue: "UpdatedFeed")
+        NotificationCenter.default.addObserver(self, selector: #selector(handleUpdateFeed), name: SharePhotoController.updateFeedNotificationName, object: nil)
+        
         collectionView?.backgroundColor = .white
         
         collectionView.register(HomePostCell.self, forCellWithReuseIdentifier: cellId)
         
+        let refreshControl = UIRefreshControl()
+        refreshControl.addTarget(self, action: #selector(handRefresh), for: .valueChanged)
+        collectionView.refreshControl = refreshControl
+        
         setupNavigationItems()
         
+        fetchAllPost()
+        
+    }
+    
+    @objc fileprivate func handleUpdateFeed() {
+        handRefresh()
+    }
+    
+    // Refresh Data
+    @objc fileprivate func handRefresh() {
+        print("Refresh")
+        
+        //Removes all elements from the collection.
+        posts.removeAll()
+        // Fetch all post
+        fetchAllPost()
+    }
+    
+    fileprivate func fetchAllPost() {
         fetchPost()
-        
         fetchFollowingUserIds()
-        
     }
     
     fileprivate func fetchFollowingUserIds() {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         Database.database().reference().child("following").child(uid).observeSingleEvent(of: .value) { (snapshot ) in
-            print(snapshot.value)
-            
             guard let userIdsDictionary = snapshot.value as? [String: Any] else { return }
             userIdsDictionary.forEach { (key, value) in
                 Database.fetchUserWithUID(uid: key) { (user) in
@@ -61,7 +84,6 @@ class HomeViewController: UICollectionViewController {
     
     /// Fetch post by of user
     fileprivate func fetchPost() {
-        print("fetch post")
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         // Call func fetchUserWithUID in custom extension Firebase
@@ -71,6 +93,10 @@ class HomeViewController: UICollectionViewController {
 
     }
     
+    // iOS9
+    // let refreshControl = UIRefreshControl()
+    
+    
     /// Fetch Post With User
     fileprivate func fetchPostWithUser(user: User) {
         /// get dictionary child key in  post of current user
@@ -78,15 +104,15 @@ class HomeViewController: UICollectionViewController {
         let ref = Database.database().reference().child("post").child(uid)
         ref.observeSingleEvent(of: .value, with: { (snapshot) in
             
+            // end refresh get new post
+            self.collectionView.refreshControl?.endRefreshing()
+            
             guard let dictionaries = snapshot.value as? [String: Any] else { return }
             dictionaries.forEach { (key , value) in
-                print("Key: \(key), Value: \(value)")
                 
                 guard let dictionary = value as? [String: Any] else { return }
                 
-                
                 let post = Post(user: user, dictionary: dictionary)
-                
                 
                 self.posts.append(post)
             }
