@@ -9,9 +9,11 @@
 import UIKit
 import Firebase
 
+
 class HomeViewController: UICollectionViewController {
     
     let cellId = "cellId"
+    
     var posts = [Post]()
     
     override func viewDidLoad() {
@@ -74,6 +76,7 @@ class HomeViewController: UICollectionViewController {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath) as! HomePostCell
         cell.post = posts[indexPath.item]
         
+        cell.delegate = self
         
         return cell
     }
@@ -141,6 +144,15 @@ extension HomeViewController: UICollectionViewDelegateFlowLayout {
         height += 80 // 120 is height of captionLabel
         
         return CGSize(width: view.frame.width, height: height)
+    }
+}
+
+extension HomeViewController: HomePostCellDelegate {
+    func didTapComment(post: Post) {
+        print("Did tap comment")
+        print(post.caption)
+        let commentController = CommentsController(collectionViewLayout: UICollectionViewFlowLayout())
+        navigationController?.pushViewController(commentController, animated: true)
     }
 }
 

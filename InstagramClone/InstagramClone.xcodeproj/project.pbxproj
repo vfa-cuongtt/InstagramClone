@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		1867831411E5E35D8E0A5232 /* Pods_InstagramCloneTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B3868B089F966EEF7C267803 /* Pods_InstagramCloneTests.framework */; };
 		998152FA2A0EEFB04C63BCAE /* Pods_InstagramClone_InstagramCloneUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BEC40FE6FE2DA6CE59AB7E6F /* Pods_InstagramClone_InstagramCloneUITests.framework */; };
+		B52CBDE724EC821E0030C593 /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52CBDE624EC821E0030C593 /* CommentsController.swift */; };
+		B52CBDE824EC821E0030C593 /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52CBDE624EC821E0030C593 /* CommentsController.swift */; };
+		B52CBDE924EC821E0030C593 /* CommentsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B52CBDE624EC821E0030C593 /* CommentsController.swift */; };
 		B53D6EF624993B880019943D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53D6EF524993B880019943D /* LoginController.swift */; };
 		B53D6EF724993B880019943D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53D6EF524993B880019943D /* LoginController.swift */; };
 		B53D6EF824993B880019943D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53D6EF524993B880019943D /* LoginController.swift */; };
@@ -105,6 +108,7 @@
 		1BAD5D080CEF0BA85945037E /* Pods-InstagramClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramClone.release.xcconfig"; path = "Target Support Files/Pods-InstagramClone/Pods-InstagramClone.release.xcconfig"; sourceTree = "<group>"; };
 		2EABB9F8C880F80742A69967 /* Pods-InstagramCloneTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InstagramCloneTests.debug.xcconfig"; path = "Target Support Files/Pods-InstagramCloneTests/Pods-InstagramCloneTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3868B089F966EEF7C267803 /* Pods_InstagramCloneTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InstagramCloneTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B52CBDE624EC821E0030C593 /* CommentsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommentsController.swift; sourceTree = "<group>"; };
 		B53D6EF524993B880019943D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		B53D6EFC249B0AAD0019943D /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B544B3742486BA0C00B6262B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -220,6 +224,7 @@
 			children = (
 				B544B384248E077500B6262B /* HomeViewController.swift */,
 				B5C3CF5E24ACF79E00C207C8 /* HomePostCell.swift */,
+				B52CBDE624EC821E0030C593 /* CommentsController.swift */,
 			);
 			path = HomeView;
 			sourceTree = "<group>";
@@ -635,6 +640,7 @@
 				B544B3752486BA0C00B6262B /* Extensions.swift in Sources */,
 				B544B395248E0A6E00B6262B /* AppRouter.swift in Sources */,
 				B5B6A35B24A0F1810097C872 /* AddPhotoViewController.swift in Sources */,
+				B52CBDE724EC821E0030C593 /* CommentsController.swift in Sources */,
 				B53D6EFD249B0AAD0019943D /* BaseViewController.swift in Sources */,
 				B54C8E5D24AA3F4200A55FE7 /* UserProfilePhotoCell.swift in Sources */,
 				B5C3CF6724B4C19700C207C8 /* FirebaseUtills.swift in Sources */,
@@ -665,6 +671,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5B6A36824A5193A0097C872 /* PhotoSelectorHeader.swift in Sources */,
+				B52CBDE824EC821E0030C593 /* CommentsController.swift in Sources */,
 				B5B6A36424A3B75C0097C872 /* PhotoSelectorCell.swift in Sources */,
 				B5C3CF6024ACF79E00C207C8 /* HomePostCell.swift in Sources */,
 				B5D7C26424856CCF00328163 /* InstagramCloneTests.swift in Sources */,
@@ -693,6 +700,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B5B6A36924A5193A0097C872 /* PhotoSelectorHeader.swift in Sources */,
+				B52CBDE924EC821E0030C593 /* CommentsController.swift in Sources */,
 				B5B6A36524A3B75C0097C872 /* PhotoSelectorCell.swift in Sources */,
 				B5C3CF6124ACF79E00C207C8 /* HomePostCell.swift in Sources */,
 				B5D7C26F24856CD000328163 /* InstagramCloneUITests.swift in Sources */,
